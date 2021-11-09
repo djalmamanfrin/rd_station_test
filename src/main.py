@@ -10,8 +10,8 @@ def print_hi(name):
 
 
 def filter_css_away(css, css_away):
-    css_available = list(filter(lambda cs_available: cs_available.id not in css_away, css))
-    css_ids = map(lambda cs: cs.id, css_available)
+    css_available = list(filter(lambda cs: cs['id'] not in css_away, css))
+    css_ids = list(map(lambda cs: cs['id'], css_available))
     return css_ids
 
 def customer_success_balancing(css, customers, cs_away):
