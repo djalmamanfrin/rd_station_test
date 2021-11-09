@@ -17,6 +17,10 @@ def test_filter_css_away():
     ]
     css_away = [2, 4]
     assert main.filter_css_away(css, css_away) == [1, 3]
+
+
+def test_balanced_by_score_method_exists_and_is_callable():
+    assert "balanced_by_score" in dir(main) and callable(main.balanced_by_score)
 #
 #
 # def test_customer_success_balancing_method_exists_and_is_callable():
