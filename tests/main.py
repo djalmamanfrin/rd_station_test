@@ -21,6 +21,19 @@ def test_filter_css_away():
     assert css_available_ids == [1, 3]
 
 
+def test_before_filter_css_away_must_be_sorted_by_score_asc():
+    css = [
+        {'id': 1, 'score': 60},
+        {'id': 2, 'score': 20},
+        {'id': 3, 'score': 95},
+        {'id': 4, 'score': 75}
+    ]
+    css_away = [3, 4]
+    css_available = main.filter_css_away(css, css_away)
+    css_available_ids = [cs_available['id'] for cs_available in css_available]
+    assert css_available_ids == [2, 1]
+
+
 def test_balanced_by_score_method_exists_and_is_callable():
     assert "balanced_by_score" in dir(main) and callable(main.balanced_by_score)
 
