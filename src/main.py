@@ -14,12 +14,6 @@ def balanced_by_score(cs, customers, start_score):
     return  css
 
 def customer_success_balancing(css, customers, css_away):
-    css_available = filter_css_away_and_sort_by_score_asc(css, css_away)
-
-    start_score = 0
-    for cs in css_available:
-        cs_balanced = balanced_by_score(cs, customers, start_score)
-        start_score = cs['score']
     return 0
 
 

@@ -53,27 +53,27 @@ def test_balanced_by_score():
     balanced_by_score = main.balanced_by_score(cs, customers, start_score)
     assert len(balanced_by_score) == 4
 
-#
-# def test_customer_success_balancing_method_exists_and_is_callable():
-#     assert "customer_success_balancing" in dir(main) and callable(main.customer_success_balancing)
+
+def test_customer_success_balancing_method_exists_and_is_callable():
+    assert "customer_success_balancing" in dir(main) and callable(main.customer_success_balancing)
 
 
-# def test_scenario_one():
-#     css = [
-#         {'id': 1, 'score': 60},
-#         {'id': 2, 'score': 20},
-#         {'id': 3, 'score': 95},
-#         {'id': 4, 'score': 75}
-#     ]
-#
-#     customers = [
-#         {'id': 1, 'score': 90},
-#         {'id': 2, 'score': 20},
-#         {'id': 3, 'score': 70},
-#         {'id': 4, 'score': 40},
-#         {'id': 5, 'score': 60},
-#         {'id': 6, 'score': 10}
-#     ]
-#     css_away = [2, 4]
-#     customer_balancing = main.customer_success_balancing(css, customers, css_away)
-#     assert customer_balancing == 1
+def test_scenario_one():
+    css = [
+        {'id': 1, 'score': 60},
+        {'id': 2, 'score': 20},
+        {'id': 3, 'score': 95},
+        {'id': 4, 'score': 75}
+    ]
+
+    customers = [
+        {'id': 1, 'score': 90},
+        {'id': 2, 'score': 20},
+        {'id': 3, 'score': 70},
+        {'id': 4, 'score': 40},
+        {'id': 5, 'score': 60},
+        {'id': 6, 'score': 10}
+    ]
+    css_away = [2, 4]
+    customer_balancing = main.customer_success_balancing(css, customers, css_away)
+    assert customer_balancing == 1
