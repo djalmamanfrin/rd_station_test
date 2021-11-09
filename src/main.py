@@ -17,7 +17,10 @@ def filter_css_away(css, css_away):
 def balanced_by_score(cs, customers):
     return [customer for customer in customers if customer['score'] <= cs['score']]
 
-def customer_success_balancing(css, customers, cs_away):
+def customer_success_balancing(css, customers, css_away):
+    css_available = filter_css_away(css, css_away)
+    for cs in css_available:
+        cs_balanced = balanced_by_score(cs, customers)
     return 0
 
 

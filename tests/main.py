@@ -16,7 +16,9 @@ def test_filter_css_away():
         {'id': 4, 'score': 75}
     ]
     css_away = [2, 4]
-    assert main.filter_css_away(css, css_away) == [1, 3]
+    css_available = main.filter_css_away(css, css_away)
+    css_available_ids = [id for cs_available in css_available]
+    assert css_available_ids == [1, 3]
 
 
 def test_balanced_by_score_method_exists_and_is_callable():
