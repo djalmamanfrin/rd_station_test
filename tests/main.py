@@ -72,3 +72,49 @@ def test_scenario_two():
     customer_balancing = main.customer_success_balancing(css, customers, css_away)
     assert customer_balancing == 0
 
+
+@pytest.mark.execution_timeout(0.1)
+def test_scenario_three():
+    css = main.map_entities(range(1, 1000))
+
+    list_of_entities = main.build_size_entities(10000, 998)
+    customers = main.map_entities(list_of_entities)
+    css_away = [999]
+
+    customer_balancing = main.customer_success_balancing(css, customers, css_away)
+    assert customer_balancing == 998
+
+def test_scenario_four():
+    css = main.map_entities([1, 2, 3, 4, 5, 6])
+    customers = main.map_entities([10, 10, 10, 20, 20, 30, 30, 30, 20, 60])
+    css_away = []
+
+    customer_balancing = main.customer_success_balancing(css, customers, css_away)
+    assert customer_balancing == 0
+
+
+def test_scenario_five():
+    css = main.map_entities([100, 2, 3, 3, 4, 5])
+    customers = main.map_entities([10, 10, 10, 20, 20, 30, 30, 30, 20, 60])
+    css_away = []
+
+    customer_balancing = main.customer_success_balancing(css, customers, css_away)
+    assert customer_balancing == 1
+
+
+def test_scenario_six():
+    css = main.map_entities([100, 99, 88, 3, 4, 5])
+    customers = main.map_entities([10, 10, 10, 20, 20, 30, 30, 30, 20, 60])
+    css_away = [1, 3, 2]
+
+    customer_balancing = main.customer_success_balancing(css, customers, css_away)
+    assert customer_balancing == 0
+
+
+def test_scenario_seven():
+    css = main.map_entities([100, 99, 88, 3, 4, 5])
+    customers = main.map_entities([10, 10, 10, 20, 20, 30, 30, 30, 20, 60])
+    css_away = [4, 5, 6]
+
+    customer_balancing = main.customer_success_balancing(css, customers, css_away)
+    assert customer_balancing == 3
