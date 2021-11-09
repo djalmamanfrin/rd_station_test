@@ -9,7 +9,7 @@ def print_hi(name):
     return f'Hi, {name}'  # Press Ctrl+F8 to toggle the breakpoint.
 
 
-def filter_css_away(css, css_away):
+def filter_css_away_and_sort_by_score_asc(css, css_away):
     css_filtered = list(filter(lambda cs: cs['id'] not in css_away, css))
     css_filtered.sort(key=lambda cs: cs['score'])
     return css_filtered
@@ -18,7 +18,7 @@ def balanced_by_score(cs, customers):
     return [customer for customer in customers if customer['score'] <= cs['score']]
 
 def customer_success_balancing(css, customers, css_away):
-    css_available = filter_css_away(css, css_away)
+    css_available = filter_css_away_and_sort_by_score_asc(css, css_away)
     for cs in css_available:
         cs_balanced = balanced_by_score(cs, customers)
     return 0
