@@ -10,9 +10,7 @@ def print_hi(name):
 
 
 def filter_css_away(css, css_away):
-    css_available = list(filter(lambda cs: cs['id'] not in css_away, css))
-    css_ids = list(map(lambda cs: cs['id'], css_available))
-    return css_ids
+    return list(filter(lambda cs: cs['id'] not in css_away, css))
 
 def balanced_by_score(cs, customers):
     return [customer for customer in customers if customer['score'] <= cs['score']]

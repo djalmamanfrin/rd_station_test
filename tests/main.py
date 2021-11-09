@@ -17,7 +17,7 @@ def test_filter_css_away():
     ]
     css_away = [2, 4]
     css_available = main.filter_css_away(css, css_away)
-    css_available_ids = [id for cs_available in css_available]
+    css_available_ids = [cs_available['id'] for cs_available in css_available]
     assert css_available_ids == [1, 3]
 
 
