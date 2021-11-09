@@ -1,3 +1,4 @@
+import pytest
 from src import main
 
 def test_assert_print_run_tests():

@@ -14,8 +14,29 @@ def balanced_by_score(cs, customers, start_score):
     return  css
 
 def customer_success_balancing(css, customers, css_away):
-    return 0
+    css_available = filter_css_away_and_sort_by_score_asc(css, css_away)
 
+    overloaded_cs = []
+    start_score = 0
+    for cs in css_available:
+        cs_balanced = balanced_by_score(cs, customers, start_score)
+        if balanced_by_score is None:
+            continue
+
+        customers_ids = list(map(lambda customer: customer['id'], cs_balanced))
+        overloaded_cs.append({
+            'cs_id': cs['id'],
+            'customer_count': len(customers_ids)
+        })
+        start_score = cs['score']
+
+    overloaded_cs.sort(key=lambda cs: cs['customer_count'], reverse=True)
+    first_overloaded_cs = overloaded_cs[0]
+    second_overloaded_cs = overloaded_cs[1]
+    overloaded_cs_id = 0
+    if first_overloaded_cs['customer_count'] != second_overloaded_cs['customer_count']:
+        overloaded_cs_id = first_overloaded_cs['cs_id']
+    return overloaded_cs_id
 
 def map_entities(scores):
     enumerate_score = enumerate(scores, start=1)
