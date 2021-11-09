@@ -21,6 +21,20 @@ def test_filter_css_away():
 
 def test_balanced_by_score_method_exists_and_is_callable():
     assert "balanced_by_score" in dir(main) and callable(main.balanced_by_score)
+
+
+def test_balanced_by_score():
+    cs = {'id': 1, 'score': 60}
+    customers = [
+        {'id': 1, 'score': 90},
+        {'id': 2, 'score': 20},
+        {'id': 3, 'score': 70},
+        {'id': 4, 'score': 40},
+        {'id': 5, 'score': 60},
+        {'id': 6, 'score': 10}
+    ]
+    balanced_by_score = main.balanced_by_score(cs, customers)
+    assert len(balanced_by_score) == 4
 #
 #
 # def test_customer_success_balancing_method_exists_and_is_callable():
