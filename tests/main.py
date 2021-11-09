@@ -53,3 +53,12 @@ def test_scenario_one():
     assert customer_balancing == 1
     customer_balancing = main.customer_success_balancing(css, customers, css_away)
     assert customer_balancing == 1
+
+
+def test_scenario_two():
+    css = main.map_entities([11, 21, 31, 3, 4, 5])
+    customers = main.map_entities([10, 10, 10, 20, 20, 30, 30, 30, 20, 60])
+    css_away = []
+
+    customer_balancing = main.customer_success_balancing(css, customers, css_away)
+    assert customer_balancing == 0
