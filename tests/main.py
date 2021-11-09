@@ -8,15 +8,15 @@ def test_filter_css_away_method_exists_and_is_callable():
     assert "filter_css_away" in dir(main) and callable(main.filter_css_away)
 
 
-# def test_filter_css_away():
-#     css = [
-#         {'id': 1, 'score': 60},
-#         {'id': 2, 'score': 20},
-#         {'id': 3, 'score': 95},
-#         {'id': 4, 'score': 75}
-#     ]
-#     css_away = [2, 4]
-#     assert main.filter_css_away(css, css_away) == [1, 3]
+def test_filter_css_away():
+    css = [
+        {'id': 1, 'score': 60},
+        {'id': 2, 'score': 20},
+        {'id': 3, 'score': 95},
+        {'id': 4, 'score': 75}
+    ]
+    css_away = [2, 4]
+    assert main.filter_css_away(css, css_away) == [1, 3]
 #
 #
 # def test_customer_success_balancing_method_exists_and_is_callable():
