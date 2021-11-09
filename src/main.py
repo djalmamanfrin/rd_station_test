@@ -17,5 +17,13 @@ def customer_success_balancing(css, customers, css_away):
     return 0
 
 
+def map_entities(scores):
+    enumerate_score = enumerate(scores, start=1)
+    return [{'id': score[0], 'score': score[1]} for score in enumerate_score]
+
+
+def build_size_entities(size, score):
+    return [score] * size
+
 if __name__ == '__main__':
     print_run_tests()
