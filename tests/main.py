@@ -1,11 +1,12 @@
 import pytest
 from src import main
 
-def test_assert_hi():
-    assert 'Hi, PyCharm' == main.print_hi('PyCharm')
+def test_assert_print_run_tests():
+    assert 'Hi, run tests' == main.print_run_tests()
+
 
 def test_filter_css_away_method_exists_and_is_callable():
-    assert "filter_css_away" in dir(main) and callable(main.filter_css_away)
+    assert "filter_css_away_and_sort_by_score_asc" in dir(main) and callable(main.filter_css_away_and_sort_by_score_asc)
 
 
 def test_filter_css_away():
@@ -16,7 +17,7 @@ def test_filter_css_away():
         {'id': 4, 'score': 75}
     ]
     css_away = [2, 4]
-    css_available = main.filter_css_away(css, css_away)
+    css_available = main.filter_css_away_and_sort_by_score_asc(css, css_away)
     css_available_ids = [cs_available['id'] for cs_available in css_available]
     assert css_available_ids == [1, 3]
 
@@ -29,7 +30,7 @@ def test_before_filter_css_away_must_be_sorted_by_score_asc():
         {'id': 4, 'score': 75}
     ]
     css_away = [3, 4]
-    css_available = main.filter_css_away(css, css_away)
+    css_available = main.filter_css_away_and_sort_by_score_asc(css, css_away)
     css_available_ids = [cs_available['id'] for cs_available in css_available]
     assert css_available_ids == [2, 1]
 
@@ -48,9 +49,10 @@ def test_balanced_by_score():
         {'id': 5, 'score': 60},
         {'id': 6, 'score': 10}
     ]
-    balanced_by_score = main.balanced_by_score(cs, customers)
+    start_score = 0
+    balanced_by_score = main.balanced_by_score(cs, customers, start_score)
     assert len(balanced_by_score) == 4
-#
+
 #
 # def test_customer_success_balancing_method_exists_and_is_callable():
 #     assert "customer_success_balancing" in dir(main) and callable(main.customer_success_balancing)
