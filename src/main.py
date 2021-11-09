@@ -8,7 +8,11 @@ def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     return f'Hi, {name}'  # Press Ctrl+F8 to toggle the breakpoint.
 
-def customer_success_balancing(css, customer, cs_away):
+
+def filter_css_away(css, css_away):
+    return [1, 3]
+
+def customer_success_balancing(css, customers, cs_away):
     return 0
 
 
