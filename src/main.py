@@ -14,6 +14,9 @@ def filter_css_away(css, css_away):
     css_ids = list(map(lambda cs: cs['id'], css_available))
     return css_ids
 
+def balanced_by_score():
+    return 0
+
 def customer_success_balancing(css, customers, cs_away):
     return 0
 
